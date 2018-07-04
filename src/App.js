@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import LectureGoalList from './components/LectureGoalList';
 import logo from './logo.svg';
 import './App.css';
 
@@ -11,22 +12,21 @@ const goals = [
   '6. React 로 간단한 노트앱을 만들어본다',
 ];
 
-const LectureGoalList = props => {
-  console.log(props);
-  return (
-    <div>
-      <div>{props.title}</div>
-      <ul>{props.items.map((item, idx) => <li key={idx}>{item}</li>)}</ul>
-    </div>
-  );
-};
-
 class App extends Component {
+  handleClick(e) {
+    console.log(e.target);
+  }
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+          <img
+            src={logo}
+            onClick={this.handleClick}
+            className="App-logo"
+            alt="logo"
+          />
           <h1 className="App-title">React Ha</h1>
         </header>
         <p className="App-intro">
